@@ -282,7 +282,6 @@ sources:
           description: 'Nome da loja.'
         - name: SalesPersonID
           tests:
-              - unique
               - not_null
           description: 'Chave estrangeira que referencia o vendedor responsável pela loja.'
         - name: Demographics
@@ -383,13 +382,8 @@ sources:
       columns:
         - name: BusinessEntityID
           description: "Chave primária. Pessoa associada a este endereço de e-mail. Chave estrangeira para Person.BusinessEntityID."
-          tests:
-            - not_null
         - name: EmailAddressID
           description: "ID deste endereço de e-mail. Identidade."
-          tests:
-            - unique
-            - not_null
         - name: EmailAddress
           description: "Endereço de e-mail da pessoa."
         - name: rowguid

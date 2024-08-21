@@ -41,6 +41,6 @@ models:
 
 seeds:
   my_new_project: # <-- Name of the project. If you renamed your project you have to change this as well
-    personemailadress:
+    new_table_name:
       +schema: sap_adw
 

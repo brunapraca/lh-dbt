@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: dim_produto
+    description: Dimensão que contém informações dos produtos.
+    columns:
+      - name: produto_sk
+        description: Chave surrogate do produto.
+        tests:
+          - not_null
+          - unique
+      - name: pk_produto
+        description: Chave natural do produto.
+        tests:
+          - not_null
+          - unique
+      - name: nome_produto
+        description: Nome do produto.
+        tests:
+          - not_null
+      - name: produto_fabricado
+        description: Indicador se o produto é fabricado.
+        tests:
+          - not_null
+      - name: produto_acabado
+        description: Indicador se o produto é um produto acabado.
+        tests:
+          - not_null
+      - name: cor_produto
+        description: Cor do produto.
+        tests:
+          - not_null
+      - name: custo_padrao_produto
+        description: Custo padrão do produto.
+        tests:
+          - not_null
+      - name: preco_venda_sugerido
+        description: Preço de venda sugerido para o produto.
+        tests:
+          - not_null
+      - name: dias_producao
+        description: Dias de produção do produto.
+        tests:
+          - not_null
+      - name: linha_produto
+        description: Linha à qual o produto pertence.
+        tests:
+          - not_null
+      - name: classe_produto
+        description: Classe do produto.
+        tests:
+          - not_null
+      - name: estilo_produto
+        description: Estilo do produto.
+        tests:
+          - not_null
+      - name: pk_subcategoria_produto
+        description: Chave natural da subcategoria do produto.
+        tests:
+          - not_null
+      - name: pk_modelo_produto
+        description: Chave natural do modelo do produto.
+        tests:
+          - not_null

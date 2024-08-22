@@ -2,7 +2,7 @@ with
     rennamed as (
         select 
         cast(customerid as int) as pk_cliente
-        , cast(personid as int) as fk_tipo_pessoa
+        , cast(personid as int) as fk_pessoa
         , cast(territoryid as int) as fk_territorio
        -- storeid - não será necessário para essa análise
        -- rowguid - não será necessário para essa análise

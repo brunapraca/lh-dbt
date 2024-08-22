@@ -17,5 +17,4 @@ with
         from {{ source('sap_adw', 'person') }} 
     )
 select * 
-from {{ source('sap_adw', 'person') }} 
-
+from rennamed

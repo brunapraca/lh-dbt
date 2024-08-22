@@ -45,24 +45,22 @@ sources:
         - name: ModifiedDate
           description: 'Data da última modificação do registro do país ou região.'
 
-    - name: creditcard
-      description: 'Registra informações sobre cartões de crédito usados pelos clientes, incluindo o tipo de cartão, número e data de validade.'
+    - name: personcreditcard
+      description: 'Tabela que contém dados sobre entidades de negócios e cartões de crédito associados.'
       columns:
-        - name: CreditCardID
-          description: 'Chave única para cada cartão de crédito.'
+        - name: BusinessEntityID
+          description: 'Número de identificação da entidade de negócios. Chave estrangeira para Person.BusinessEntityID.'
           tests:
             - unique
             - not_null
-        - name: CardType
-          description: 'Tipo de cartão de crédito (ex: Visa, MasterCard).'
-        - name: CardNumber
-          description: 'Número do cartão de crédito.'
-        - name: ExpMonth
-          description: 'Mês de expiração do cartão de crédito.'
-        - name: ExpYear
-          description: 'Ano de expiração do cartão de crédito.'
+        - name: CreditCardID
+          description: 'Número de identificação do cartão de crédito. Chave estrangeira para CreditCard.CreditCardID.'
+          tests:
+            - not_null
         - name: ModifiedDate
-          description: 'Data da última modificação do registro do cartão de crédito.'
+          description: 'Data e hora da última atualização do registro.'
+          tests:
+            - not_null
 
     - name: customer
       description: 'Armazena os detalhes dos clientes, como identificadores únicos, referências a pessoas ou lojas associadas e informações territoriais.'
@@ -378,6 +376,24 @@ sources:
             description: "Data e hora da última atualização do registro."
 
 
+    - name: salesorderheadersalesreason
+      description: 'Tabela contendo dados sobre ordens de venda e razões de venda, incluindo identificadores e data da última modificação.'
+      columns:
+          - name: SalesOrderID
+            description: 'Número de identificação da ordem de venda. Chave estrangeira para SalesOrderHeader.SalesOrderID.'
+            tests:
+              - unique
+              - not_null
+          - name: SalesReasonID
+            description: 'Número de identificação da razão de venda. Chave estrangeira para SalesReason.SalesReasonID.'
+            tests:
+              - unique
+              - not_null
+          - name: ModifiedDate
+            description: 'Data e hora da última atualização do registro.'
+            tests:
+              - not_null
+
   - name: dbt_brunapraca
     description: 'Fonte de dados do sistema ERP da AdventureWorks, source criada'
     database: advertureworkslh
@@ -397,4 +413,4 @@ sources:
           description: "Número ROWGUIDCOL que identifica exclusivamente o registro. Usado para suportar um exemplo de replicação de mesclagem."
         - name: ModifiedDate
           description: "Data e hora em que o registro foi atualizado pela última vez."
-          
+      

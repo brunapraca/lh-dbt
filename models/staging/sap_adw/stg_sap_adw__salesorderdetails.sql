@@ -2,7 +2,7 @@ with
 rennamed as (
     select 
      cast(salesorderid as int) as pk_pedido
-        , cast(salesorderdetailid as int) as fk_detalhe_pedido
+        , cast(salesorderdetailid as int) as pk_detalhe_pedido
         , cast(specialofferid as int) as fk_promocao
         , cast(orderqty as int) as quantidade_pedido
         , cast(productid as int) as fk_produto

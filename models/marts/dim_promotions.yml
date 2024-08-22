@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: dim_promotions
+    description: Tabela que contém informações sobre promoções e produtos associados.
+    columns:
+      - name: promocao_sk
+        description: Chave surrogate para a promoção.
+        tests:
+          - not_null
+          - unique
+      - name: pk_promocao
+        description: Chave natural da promoção.
+        tests:
+          - not_null
+      - name: descricao_promocao
+        description: Descrição da promoção.
+        tests:
+          - not_null
+      - name: percentual_desconto
+        description: Percentual de desconto da promoção.
+        tests:
+          - not_null
+      - name: tipo_promocao
+        description: Tipo de promoção.
+        tests:
+          - not_null
+      - name: categoria_promocao
+        description: Categoria da promoção.
+        tests:
+          - not_null
+      - name: data_inicio
+        description: Data de início da promoção.
+        tests:
+          - not_null
+      - name: data_fim
+        description: Data de término da promoção.
+        tests:
+          - not_null
+      - name: pk_produto
+        description: Chave natural do produto.
+      - name: nome_produto
+        description: Nome do produto.

@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: 'Dimensão que contém informações detalhadas sobre clientes, incluindo dados de território, pessoa, e uso de cartão de crédito.'
+    columns:
+      - name: cliente_sk
+        description: 'Chave surrogat criada para identificação única do cliente.'
+        tests:
+          - unique
+          - not_null
+      - name: pk_cliente
+        description: 'Número de identificação do cliente.'
+        tests:
+          - not_null
+      - name: nome_pais
+        description: 'Nome do país onde o território está localizado.'
+      - name: codigo_pais
+        description: 'Código do país onde o território está localizado.'
+      - name: total_vendas_territorio
+        description: 'Total de vendas no território.'
+      - name: tipo_entidade
+        description: 'Tipo de entidade do cadastro da pessoa (por exemplo, cliente, fornecedor).'
+      - name: nome_entidade
+        description: 'Nome da entidade cadastrada.'
+      - name: email_cliente
+        description: 'Endereço de e-mail do cliente.'
+      - name: usou_cartao_credito
+        description: 'Indicador se o cliente usou cartão de crédito (1 se usou, 0 se não usou).'
+      - name: nome_motivo_venda
+        description: 'Nome do motivo da venda.'
+      - name: tipo_motivo_venda
+        description: 'Tipo do motivo da venda.'

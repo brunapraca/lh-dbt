@@ -3,7 +3,7 @@ with
         select 
             cast(businessentityid as int) as pk_loja
             , cast(name as string) as nome_loja
-            , cast(salespersonid as int) as pk_vendedor_associado
+            , cast(salespersonid as int) as fk_vendedor_associado
 
             -- demographics -- este campo não será necessário para essa análise.
             -- rowguid -- este campo não será necessário para essa análise.

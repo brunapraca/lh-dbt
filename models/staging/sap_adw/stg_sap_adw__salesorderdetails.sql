@@ -2,10 +2,10 @@ with
 rennamed as (
     select 
      cast(salesorderid as int) as pk_pedido
-        , cast(salesorderdetailid as int) as pk_detalhe_pedido
-        , cast(specialofferid as int) as pk_promocao
+        , cast(salesorderdetailid as int) as fk_detalhe_pedido
+        , cast(specialofferid as int) as fk_promocao
         , cast(orderqty as int) as quantidade_pedido
-        , cast(productid as int) as pk_produto
+        , cast(productid as int) as fk_produto
         , cast(unitprice as decimal) as preco_unitario
         , cast(unitpricediscount as decimal) as desconto_unitario
         , cast(modifieddate as timestamp) as data_modificacao

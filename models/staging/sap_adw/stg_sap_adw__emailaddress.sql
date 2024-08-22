@@ -1,12 +1,12 @@
 with
     rennamed as (
-        select
-            cast(businessentityid as int) as pk_entidade
-            , cast(emailaddressid as int) as fk_email_cliente
-            , cast(emailaddress as string) as email_cliente
-            -- rowguid -- não será usado nessa análise
-            -- modifieddate -- não será usado nessa análise
-        from {{ source('sap_adw', 'emailaddress') }}
+        select 
+        cast(businessentityid as int) as pk_email_cliente
+        ,  cast(emailaddressid as int) as fk_email_cliente
+        ,  cast(emailaddress as string) as email_cliente
+        -- rowguid -- não será necessário para essa análise
+        -- modifieddat -- não será necessário para essa análise 
+        from {{ source('dbt_brunapraca', 'personemailaddress') }}
     )
-select *
+select * 
 from rennamed

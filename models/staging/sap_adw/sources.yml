@@ -377,6 +377,13 @@ sources:
           - name: ModifiedDate
             description: "Data e hora da última atualização do registro."
 
+
+  - name: dbt_brunapraca
+    description: 'Fonte de dados do sistema ERP da AdventureWorks, source criada'
+    database: advertureworkslh
+    schema: dbt_brunapraca
+    tables:
+
     - name: personemailaddress 
       description: "Tabela que armazena informações sobre endereços de e-mail associados a pessoas."
       columns:

@@ -3,19 +3,19 @@ with
         select 
             cast(productid as int) as pk_produto
             , cast(name as string) as nome_produto
-            , cast(productnumber as string) as indentificacao_produto
             , cast(makeflag as boolean) as produto_fabricado
             , cast(finishedgoodsflag as boolean) as produto_acabado
             , cast(color as string) as cor_produto
             , cast(standardcost as decimal) as custo_padrao_produto
             , cast(listprice as decimal) as preco_venda_sugerido
             , cast(daystomanufacture as int) as dias_producao
-            , cast(productline as string) as linha_produto
-            , cast(class as string) as classe_produto
-            , cast(style as string) as estilo_produto
-            , cast(productsubcategoryid as int) as fk_subcategoria_produto
-            , cast(productmodelid as int) as pk_modelo_produto
-            
+                    
+            -- productline -- este campo não será necessário para essa análise.
+            -- class -- este campo não será necessário para essa análise.
+            -- style -- este campo não será necessário para essa análise.
+            -- productsubcategoryid -- este campo não será necessário para essa análise.
+            -- productmodelid -- este campo não será necessário para essa análise.
+            -- productnumber -- este campo não será necessário para essa análise.
             -- eightunitmeasurecode -- este campo não será necessário para essa análise.
             -- size-- este campo não será necessário para essa análise.
             -- SizeUnitMeasureCode -- este campo não será necessário para essa análise.

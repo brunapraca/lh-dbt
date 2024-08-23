@@ -2,7 +2,7 @@ with
     rennamed as (
         select 
             cast (territoryid as int) as pk_territorio
-            , cast (name as string) as nome_pais
+            , cast (name as string) as nome_territorio
             , cast (countryregioncode as string) as codigo_pais
             , cast (salesytd as decimal) as total_vendas_territorio
             -- group -- não será necessário nessa análise

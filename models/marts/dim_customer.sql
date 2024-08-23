@@ -44,7 +44,7 @@ with
        select 
             row_number() over (order by stg_cliente.pk_cliente) as cliente_sk  -- criação de uma chave surrogat
             , stg_cliente.pk_cliente
-            , stg_territorio.nome_pais
+            , stg_territorio.nome_territorio
             , stg_territorio.codigo_pais
             , stg_territorio.total_vendas_territorio
             , stg_cadastro_pessoa.tipo_entidade

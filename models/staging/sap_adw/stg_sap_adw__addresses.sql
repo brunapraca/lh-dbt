@@ -2,7 +2,7 @@ with
     rennamed as (
         select 
             cast(addressid as int) as pk_cidade
-            , cast(city as string) as city
+            , cast(city as string) as cidade
             , cast(stateprovinceid as int) as fk_provincia
             --addressline1 -- não será necessário usar essa coluna agora
             -- addressline2 -- não será necessário usar essa coluna agora

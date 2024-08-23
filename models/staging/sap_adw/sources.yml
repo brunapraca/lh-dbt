@@ -382,17 +382,29 @@ sources:
           - name: SalesOrderID
             description: 'Número de identificação da ordem de venda. Chave estrangeira para SalesOrderHeader.SalesOrderID.'
             tests:
-              - unique
               - not_null
           - name: SalesReasonID
             description: 'Número de identificação da razão de venda. Chave estrangeira para SalesReason.SalesReasonID.'
             tests:
-              - unique
               - not_null
           - name: ModifiedDate
             description: 'Data e hora da última atualização do registro.'
             tests:
               - not_null
+    - name: stateprovince
+      description: Armazena informações sobre estados ou províncias, incluindo códigos ISO, nomes e a região territorial associada.
+      columns:
+        - name: StateProvinceID
+          tests: 
+            - unique
+            - not_null
+        - name: StateProvinceCode
+        - name: CountryRegionCode
+        - name: IsOnlyStateProvinceFlag
+        - name: Name
+        - name: TerritoryID
+        - name: rowguid
+        - name: ModifiedDate
 
   - name: dbt_brunapraca
     description: 'Fonte de dados do sistema ERP da AdventureWorks, source criada'

@@ -10,7 +10,6 @@ with
         -- rowguid -- não será usado para essa análise
         -- modifieddate -- não será usado para essa análise
         from {{ source('sap_adw', 'stateprovince') }}
-
     )
 select * 
 from rennamed

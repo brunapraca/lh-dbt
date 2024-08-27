@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_promotions
+    description: 'Dimensão de promoções para análises de campanhas promocionais, incluindo detalhes sobre a promoção, produtos associados e duração da oferta.'
+    columns:
+      - name: pk_promocao
+        description: 'Chave primária da promoção, vinda da tabela de origem.'
+        tests:
+          - not_null
+      - name: descricao_promocao
+        description: 'Descrição da promoção.'
+      - name: percentual_desconto
+        description: 'Percentual de desconto aplicado pela promoção.'
+      - name: tipo_promocao
+        description: 'Tipo da promoção (ex: desconto, oferta especial).'
+      - name: categoria_promocao
+        description: 'Categoria da promoção (ex: sazonal, liquidacao).'
+      - name: data_inicio
+        description: 'Data de início da promoção.'
+        tests:
+          - not_null
+      - name: data_fim
+        description: 'Data de término da promoção.'
+        tests:
+          - not_null
+      - name: pk_produto
+        description: 'Chave primária do produto associado à promoção.'
+      - name: nome_produto
+        description: 'Nome do produto associado à promoção.'
+      - name: duracao_promocao
+        description: 'Duração da promoção em dias, calculada como a diferença entre a data de término e a data de início.'

@@ -6,6 +6,5 @@ with
             -- modifieddate -- não será necessário usar para essa análise 
         from {{ source('sap_adw', 'personcreditcard') }}
     )
-
 select * 
 from rennamed

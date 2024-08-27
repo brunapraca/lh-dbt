@@ -12,7 +12,6 @@ with
             --MaxQty - não será necessário para essa análise
             --rowguid - não será necessário para essa análise
             --modifiedDate - não será necessário para essa análise
-
         from {{ source('sap_adw', 'specialoffer') }}   
     )
 select * 

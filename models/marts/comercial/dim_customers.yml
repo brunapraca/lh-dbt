@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: 'Dimensão de clientes que fornece informações detalhadas sobre os clientes, incluindo dados de contato, território e motivos de compra.'
+    columns:
+      - name: cliente_sk
+        description: 'Chave substituta (surrogate key) que identifica de forma única cada cliente na tabela.'
+        tests:
+          - unique
+          - not_null
+      - name: pk_cliente
+        description: 'Chave primária do cliente, vinda da tabela de origem.'
+        tests:
+          - not_null
+      - name: nome_territorio
+        description: 'Nome do território associado ao cliente.'
+      - name: nome_entidade
+        description: 'Nome do cliente ou entidade associada.'
+      - name: email_cliente
+        description: 'Endereço de e-mail do cliente.'
+      - name: nome_motivo_venda
+        description: 'Nome do motivo de venda associado ao cliente.'
+      - name: tipo_motivo_venda
+        description: 'Tipo do motivo de venda associado ao cliente.'
+      - name: usou_cartao_credito
+        description: 'Indica se o cliente usou um cartão de crédito (true/false).'

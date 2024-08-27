@@ -41,6 +41,9 @@ models:
         comercial:
           +schema: marts
 
+        aggregations:
+          +schema: marts
+
         intermediate:
           +materialized: view
           +schema: int

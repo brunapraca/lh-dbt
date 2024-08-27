@@ -45,9 +45,9 @@ models:
           +materialized: view
           +schema: int
 
-        staging:
-          +schema: stg 
-          +materialized: view
-          sap_adw: 
+      staging:
+        +schema: stg 
+        +materialized: view
+        sap_adw: 
 
 

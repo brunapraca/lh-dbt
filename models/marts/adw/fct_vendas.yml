@@ -46,3 +46,7 @@ models:
         description: 'Número de dias entre a data do pedido e a data de envio.'
       - name: sk_vendas
         description: 'Chave substituta (surrogate key) gerada a partir de um hash MD5 que combina diversas chaves do pedido.'
+        tests:
+          - not_null
+          - unique
+              

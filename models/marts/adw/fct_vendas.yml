@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: 'Dimensão de pedidos de vendas, incluindo detalhes dos pedidos, status, promoções aplicadas e métricas relacionadas às vendas.'
+    columns:
+      - name: pk_pedido
+        description: 'Chave primária do pedido, identificando de forma única cada pedido na tabela.'
+        tests:
+          - not_null
+      - name: pk_detalhe_pedido
+        description: 'Chave primária do detalhe do pedido, identificando de forma única cada item do pedido.'
+        tests:
+          - not_null
+      - name: fk_promocao
+        description: 'Chave estrangeira referenciando a promoção aplicada ao pedido.'
+      - name: fk_produto
+        description: 'Chave estrangeira referenciando o produto incluído no pedido.'
+      - name: fk_cliente
+        description: 'Chave estrangeira referenciando o cliente que fez o pedido.'
+      - name: fk_vendedor
+        description: 'Chave estrangeira referenciando o vendedor que gerenciou o pedido.'
+      - name: fk_territorio
+        description: 'Chave estrangeira referenciando o território associado ao pedido.'
+      - name: fk_cartao_credito
+        description: 'Chave estrangeira referenciando o cartão de crédito usado no pedido, se aplicável.'
+      - name: data_pedido
+        description: 'Data em que o pedido foi realizado.'
+      - name: data_envio
+        description: 'Data em que o pedido foi enviado.'
+      - name: status_pedido
+        description: 'Código do status do pedido.'
+      - name: nome_status_pedido
+        description: 'Nome descritivo do status do pedido, baseado no código de status.'
+      - name: flag_pedido_online
+        description: 'Indica se o pedido foi realizado online (true/false).'
+      - name: quantidade_comprada
+        description: 'Quantidade de produtos comprados no pedido.'
+      - name: preco_unitario
+        description: 'Preço unitário do produto no pedido.'
+      - name: desconto_unitario
+        description: 'Desconto aplicado por unidade do produto.'
+      - name: valor_com_desconto
+        description: 'Valor do produto com o desconto aplicado.'
+      - name: tempo_frete
+        description: 'Número de dias entre a data do pedido e a data de envio.'
+      - name: sk_vendas
+        description: 'Chave substituta (surrogate key) gerada a partir de um hash MD5 que combina diversas chaves do pedido.'

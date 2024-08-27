@@ -60,14 +60,17 @@ with
 
     , metricas as (
         select
-            nome_territorio as nome_regiao
+            pk_territorio
+            , nome_territorio as nome_regiao
             , nome_pais as pais
             , cidade
             , COUNT(distinct pk_pedido) as qnt_pedido_cidade
             , SUM(quantidade_comprada) as total_vendas_cidade
             , SUM(preco_unitario) as valor_negociado_cidade
         from joined
-        group by cidade
+        group by 
+            pk_territorio
+            , cidade
             , nome_territorio
             , nome_pais
     )

@@ -33,6 +33,7 @@ with
         select 
         vendas.sk_vendas
         , pk_pedido
+        , vendas.fk_vendedor
         , vendas.data_pedido
         , vendas.data_envio
         , vendas.status_pedido

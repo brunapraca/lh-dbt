@@ -32,7 +32,6 @@ SELECT
     , metricas_vendas.total_desconto
     , metricas_vendas.total_pedidos
     , metricas_vendas.total_clientes
-    , metricas_vendas.media_tempo_frete
     , metricas_vendas.valor_medio_pedido
     , metricas_vendas.valor_bruto
     , CASE

@@ -11,9 +11,7 @@ with
             -- costlastyear -- não será necessário nessa análise
             -- rowguid -- não será necessário nessa análise
             -- modifieddate -- não será necessário nessa análise
-
         from {{ source('sap_adw', 'salesterritory') }}
-
     )
 select * 
 from rennamed

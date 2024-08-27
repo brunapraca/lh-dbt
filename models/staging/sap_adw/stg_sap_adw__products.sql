@@ -9,7 +9,6 @@ with
             , cast(standardcost as decimal) as custo_padrao_produto
             , cast(listprice as decimal) as preco_venda_sugerido
             , cast(daystomanufacture as int) as dias_producao
-                    
             -- productline -- este campo não será necessário para essa análise.
             -- class -- este campo não será necessário para essa análise.
             -- style -- este campo não será necessário para essa análise.
@@ -29,6 +28,5 @@ with
             -- modifieddate -- este campo não será necessário para essa análise.
         from {{ source('sap_adw', 'product') }}
     )
-
 select *
 from rennamed

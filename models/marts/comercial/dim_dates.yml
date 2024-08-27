@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_dates
+    description: 'Dimensão de datas que fornece detalhes sobre as datas de pedidos, incluindo ano, mês, dia, dia da semana, trimestre e tipo de dia.'
+    columns:
+      - name: date_key
+        description: 'Chave de data, representando a data no formato YYYY-MM-DD.'
+        tests:
+          - unique
+          - not_null
+      - name: ano
+        description: 'Ano da data.'
+      - name: mes
+        description: 'Mês da data.'
+      - name: dia
+        description: 'Dia do mês da data.'
+      - name: dia_da_semana
+        description: 'Dia da semana da data, onde 1 representa domingo e 7 representa sábado.'
+      - name: trimestre
+        description: 'Trimestre do ano da data (1, 2, 3 ou 4).'
+      - name: data_string
+        description: 'Data formatada como uma string no formato YYYY-MM-DD.'
+      - name: day_type
+        description: 'Tipo de dia, indicando se a data é um fim de semana (weekend) ou um dia de semana (weekday).'

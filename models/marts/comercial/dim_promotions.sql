@@ -16,8 +16,7 @@ with
 
     , transformacao as (
         select 
-            row_number() over (order by stg_promocao.pk_promocao) as promocao_sk --criação de uma chave surrogate
-            , stg_promocao.pk_promocao
+            stg_promocao.pk_promocao
             , stg_promocao.descricao_promocao
             , stg_promocao.percentual_desconto
             , stg_promocao.tipo_promocao
@@ -26,6 +25,8 @@ with
             , stg_promocao.data_fim
             , stg_produto.pk_produto
             , stg_produto.nome_produto
+            , DATE_DIFF(stg_promocao.data_fim, stg_promocao.data_inicio, DAY) 
+            as duracao_promocao
         from stg_promocao 
         left join stg_promocao_produto on stg_promocao.pk_promocao = stg_promocao_produto.pk_promocao
         left join stg_produto on stg_promocao_produto.fk_produto = stg_produto.pk_produto

@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: 'Dimensão de produtos detalhando informações sobre os produtos, incluindo características e preços sugeridos.'
+    columns:
+      - name: produto_sk
+        description: 'Chave substituta (surrogate key) que identifica de forma única cada produto na tabela.'
+        tests:
+          - unique
+          - not_null
+      - name: pk_produto
+        description: 'Chave primária do produto, vinda da tabela de origem.'
+        tests:
+          - not_null
+      - name: nome_produto
+        description: 'Nome do produto.'
+      - name: fabricado
+        description: 'Indica se o produto é fabricado.'
+      - name: acabado
+        description: 'Indica se o produto é acabado.'
+      - name: cor
+        description: 'Cor do produto.'
+      - name: custo_padrao
+        description: 'Custo padrão do produto.'
+      - name: preco_sugerido
+        description: 'Preço sugerido de venda do produto.'
+      - name: dias_producao
+        description: 'Número de dias necessários para a produção do produto.'

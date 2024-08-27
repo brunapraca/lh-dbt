@@ -11,6 +11,8 @@ models:
           - not_null
       - name: pk_territorio
         description: 'Chave primária do território, vinda da tabela de origem.'
+        tests:
+          - not_null
       - name: nome_territorio
         description: 'Nome do território de vendas.'
       - name: total_vendas_territorio

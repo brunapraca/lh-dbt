@@ -1,9 +1,14 @@
 version: 2
 
 models:
-  - name: dim_promotions
+  - name: dim_promocoes
     description: 'Dimensão de promoções para análises de campanhas promocionais, incluindo detalhes sobre a promoção, produtos associados e duração da oferta.'
     columns:
+      - name: pk_pedido
+        description: 'Chave primária do pedido'
+        tests:
+          - not_null
+          - unique
       - name: pk_promocao
         description: 'Chave primária da promoção, vinda da tabela de origem.'
         tests:

@@ -3,7 +3,7 @@ with
         select 
             cast (countryregioncode as string) as pk_pais
             , cast (name as string) as nome_pais
-            -- modifieddate -- não é necessário usar essa coluna neste momento. 
+            , cast(modifieddate as timestamp) as data_modificacao
         from {{ source('sap_adw', 'countryregion') }}
     )
 select * 

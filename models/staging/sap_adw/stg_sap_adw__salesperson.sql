@@ -5,11 +5,11 @@ with
             , cast(territoryid as int) as fk_territorio
             , cast(salesquota as decimal) as cota_vendas
             , cast(salesytd as decimal) as vendas_ano_atual
+            , cast(modifieddate as timestamp) as data_modificacao
             -- bonus -- este campo não será necessário para essa análise.
             -- comissionpct -- este campo não será necessário para essa análise.
             -- saleslastyear --este campo não será necessário para essa análise.
             -- rowguid -- este campo não será necessário para essa análise.
-            -- modifieddate -- este campo não será necessário para essa análise.
         from {{ source('sap_adw', 'salesperson') }}
     )
 select *

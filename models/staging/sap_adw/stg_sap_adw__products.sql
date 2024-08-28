@@ -9,6 +9,7 @@ with
             , cast(standardcost as decimal) as custo_padrao_produto
             , cast(listprice as decimal) as preco_venda_sugerido
             , cast(daystomanufacture as int) as dias_producao
+            , cast(modifieddate as timestamp) as data_modificacao
             -- productline -- este campo não será necessário para essa análise.
             -- class -- este campo não será necessário para essa análise.
             -- style -- este campo não será necessário para essa análise.
@@ -25,7 +26,6 @@ with
             -- sellenddate -- este campo não será necessário para essa análise.
             -- discontinueddate -- este campo não será necessário para essa análise.
             -- rowguid -- este campo não será necessário para essa análise.
-            -- modifieddate -- este campo não será necessário para essa análise.
         from {{ source('sap_adw', 'product') }}
     )
 select *

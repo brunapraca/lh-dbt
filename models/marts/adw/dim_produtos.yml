@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_products
+  - name: dim_produtos
     description: 'Dimensão de produtos detalhando informações sobre os produtos, incluindo características e preços sugeridos.'
     columns:
       - name: produto_sk
@@ -13,6 +13,7 @@ models:
         description: 'Chave primária do produto, vinda da tabela de origem.'
         tests:
           - not_null
+          - unique
       - name: nome_produto
         description: 'Nome do produto.'
       - name: fabricado

@@ -8,10 +8,10 @@ with
             , cast(Category as string) as categoria_promocao
             , cast(StartDate as timestamp) as data_inicio
             , cast(EndDate as timestamp) as data_fim
+            , cast(modifieddate as timestamp) as data_modificacao
             --MinQty  - não será necessário para essa análise
             --MaxQty - não será necessário para essa análise
             --rowguid - não será necessário para essa análise
-            --modifiedDate - não será necessário para essa análise
         from {{ source('sap_adw', 'specialoffer') }}   
     )
 select * 

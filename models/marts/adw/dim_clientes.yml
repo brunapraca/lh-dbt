@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_customers
+  - name: dim_clientes
     description: 'Dimensão de clientes que fornece informações detalhadas sobre os clientes, incluindo dados de contato, território e motivos de compra.'
     columns:
       - name: cliente_sk
@@ -13,6 +13,7 @@ models:
         description: 'Chave primária do cliente, vinda da tabela de origem.'
         tests:
           - not_null
+          - unique
       - name: nome_territorio
         description: 'Nome do território associado ao cliente.'
       - name: nome_entidade

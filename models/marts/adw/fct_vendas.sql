@@ -20,7 +20,7 @@ with
             , vendas.pk_pedido
             , vendas.fk_cliente
             , vendas.fk_vendedor
-            , vendas.fk_territorio
+            , int_sales.sk_regiao
             , vendas.fk_cartao_credito
             , vendas_detalhes.fk_promocao
             , vendas_detalhes.pk_detalhe_pedido

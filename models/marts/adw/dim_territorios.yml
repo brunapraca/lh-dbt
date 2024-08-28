@@ -1,25 +1,27 @@
 version: 2
 
 models:
-  - name: dim_territories
-    description: 'Dimensão de territórios para análises geográficas, detalhando territórios de vendas e suas respectivas regiões, províncias e cidades.'
+  - name: dim_territorios
+    description: "Dimensão de territórios para análises geográficas, detalhando territórios de vendas e suas respectivas regiões, províncias e cidades."
     columns:
-      - name: territorio_sk
-        description: 'Chave substituta (surrogate key) que identifica de forma única cada território na tabela.'
-        tests:
-          - unique
+      - name: sk_regiao
+        description: "Chave substituta (surrogate key) que identifica de forma única cada território na tabela."
+        tests: 
           - not_null
+          - unique
+      - name: pk_pedido
+        description: "Chave primária do pedido."
       - name: pk_territorio
-        description: 'Chave primária do território, vinda da tabela de origem.'
+        description: "Chave primária do território, vinda da tabela de origem."
         tests:
           - not_null
       - name: nome_territorio
-        description: 'Nome do território de vendas.'
+        description: "Nome do território de vendas."
       - name: total_vendas_territorio
-        description: 'Total de vendas atribuídas ao território.'
+        description: "Total de vendas atribuídas ao território."
       - name: nome_pais
-        description: 'Nome do país ao qual o território pertence.'
+        description: "Nome do país ao qual o território pertence."
       - name: code_provincia
-        description: 'Código da província associada ao território.'
+        description: "Código da província associada ao território."
       - name: cidade
-        description: 'Nome da cidade dentro do território.'
+        description: "Nome da cidade dentro do território."

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: dim_dates
+  - name: dim_datas
     description: 'Dimensão de datas que fornece detalhes sobre as datas de pedidos, incluindo ano, mês, dia, dia da semana, trimestre e tipo de dia.'
     columns:
       - name: date_key

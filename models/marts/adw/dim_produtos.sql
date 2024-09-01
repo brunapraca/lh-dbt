@@ -16,7 +16,10 @@ WITH
 
     , transformacao AS (
         SELECT 
-            ROW_NUMBER() OVER (ORDER BY stg_produto.pk_produto) AS produto_sk  -- Criação de uma chave surrogate
+            {{ dbt_utils.generate_surrogate_key(
+                    ['stg_produto.pk_produto']
+                )
+            }} as produto_sk
             , stg_produto.pk_produto AS pk_produto
             , MAX(stg_produto.nome_produto) AS nome_produto
             , MAX(stg_produto.produto_fabricado) AS fabricado

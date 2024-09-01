@@ -69,7 +69,10 @@ WITH
     
     , transformacao AS (
         SELECT 
-            ROW_NUMBER() OVER (ORDER BY stg_cliente.pk_cliente) AS cliente_sk
+            {{ dbt_utils.generate_surrogate_key(
+                    ['stg_cliente.pk_cliente']
+                )
+            }} as cliente_sk
             , stg_cliente.pk_cliente
             , stg_territorio.nome_territorio
             , stg_cadastro_pessoa.nome_entidade

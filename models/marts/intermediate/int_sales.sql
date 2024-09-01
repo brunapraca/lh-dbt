@@ -9,21 +9,6 @@ with
         from {{ ref('stg_sap_adw__salesorderdetails') }}
     )
 
-    ,  stg_territorio as (
-        select *
-        from {{ref('stg_sap_adw__salesterritory')}}
-    )
-
-    , stg_cidade as (
-        select *
-        from {{ref('stg_sap_adw__addresses')}}
-    )
-
-    , stg_provincia as (
-        select *
-        from {{ref('stg_sap_adw__stateprovince')}}
-    )
-
     , status_pedido as (
         select
             pk_pedido
@@ -40,22 +25,9 @@ with
         from vendas
     )
 
-    , stg_vendas_cidade as (
-        select 
-            pk_territorio
-            , pk_cidade
-        from stg_territorio
-        left join stg_provincia 
-            on stg_territorio.pk_territorio = stg_provincia.fk_territorio
-        left join stg_cidade 
-            on stg_provincia.pk_provincia = stg_cidade.fk_provincia
-    )
-
     , joined as (
         select 
             vendas.pk_pedido
-            , stg_vendas_cidade.pk_cidade
-            , stg_vendas_cidade.pk_territorio
             , vendas.fk_cliente
             , vendas.fk_vendedor
             , vendas.fk_territorio
@@ -76,10 +48,6 @@ with
             on vendas.pk_pedido = vendas_detalhes.pk_pedido
         left join status_pedido
             on vendas.pk_pedido = status_pedido.pk_pedido
-        left join stg_territorio
-            on vendas.fk_territorio = stg_territorio.pk_territorio
-        left join stg_vendas_cidade 
-            on vendas.fk_territorio = stg_vendas_cidade.pk_territorio
     )
 
     , metricas as (
@@ -101,9 +69,6 @@ with
             , preco_unitario
             , (preco_unitario * (1 - desconto_unitario)) as valor_com_desconto
             , DATE_DIFF(data_envio, data_pedido, day) as tempo_frete
-            , concat(cast(pk_pedido as string), '-', cast(pk_cidade as string)
-                , '-' , cast(pk_territorio as string))
-                as sk_regiao
             , MD5(
                 concat(
                     cast(pk_pedido as string)

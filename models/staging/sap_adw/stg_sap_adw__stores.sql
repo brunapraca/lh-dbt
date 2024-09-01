@@ -1,7 +1,7 @@
 with 
     rennamed as (
         select 
-            cast(businessentityid as int) as pk_loja
+            cast(businessentityid as int) as pk_entidade
             , cast(salespersonid as int) as fk_vendedor_associado
             , cast(name as string) as nome_loja
             , cast(modifieddate as timestamp) as data_modificacao

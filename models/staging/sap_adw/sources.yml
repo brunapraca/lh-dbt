@@ -391,6 +391,7 @@ sources:
             description: 'Data e hora da última atualização do registro.'
             tests:
               - not_null
+
     - name: stateprovince
       description: Armazena informações sobre estados ou províncias, incluindo códigos ISO, nomes e a região territorial associada.
       columns:
@@ -405,6 +406,76 @@ sources:
         - name: TerritoryID
         - name: rowguid
         - name: ModifiedDate
+
+    - name: productcategory
+      description: 'Contém informações sobre categorias de produtos, incluindo descrição, identificador único e data de modificação.'
+      columns:
+        - name: ProductCategoryID
+          description: 'Chave primária para registros de categorias de produtos.'
+          tests:
+            - unique
+            - not_null
+        - name: Name
+          description: 'Descrição da categoria de produto.'
+        - name: rowguid
+          description: 'Identificador único que representa cada registro. Utilizado para suportar exemplos de replicação por mesclagem.'
+          tests:
+            - unique
+        - name: ModifiedDate
+          description: 'Data e hora em que o registro foi atualizado pela última vez.'  
+
+    - name: productsubcategory
+      description: 'Contém informações sobre as subcategorias de produtos, incluindo ID da subcategoria, ID da categoria, nome, identificador único, e a data da última modificação.'
+      columns:
+        - name: ProductSubcategoryID
+          description: 'Chave primária para os registros de subcategorias de produtos.'
+          tests:
+            - unique
+            - not_null  
+        - name: ProductCategoryID
+          description: 'Número de identificação da categoria de produto. Chave estrangeira para ProductCategory.ProductCategoryID.'
+        - name: Name
+          description: 'Descrição da subcategoria.' 
+        - name: rowguid
+          description: 'Número ROWGUIDCOL que identifica exclusivamente o registro. Usado para suportar um exemplo de replicação de mesclagem.' 
+        - name: ModifiedDate
+          description: 'Data e hora em que o registro foi atualizado pela última vez.'
+    
+    - name: productinventory
+      description: "Tabela que armazena informações sobre a localização e quantidade de produtos em um inventário."
+      columns:
+          - name: ProductID
+            description: "Número de identificação do produto. Chave estrangeira para Product.ProductID."
+            data_type: int
+            tests:
+              - not_null
+              - unique
+          - name: LocationID
+            description: "Número de identificação do local de inventário. Chave estrangeira para Location.LocationID."
+            data_type: smallint
+            tests:
+              - not_null
+          - name: Shelf
+            description: "Compartimento de armazenamento dentro de uma localização de inventário."
+            data_type: nvarchar(10)
+          - name: Bin
+            description: "Contêiner de armazenamento em uma prateleira em uma localização de inventário."
+            data_type: tinyint
+          - name: Quantity
+            description: "Quantidade de produtos na localização de inventário."
+            data_type: smallint
+            tests:
+              - not_null
+          - name: rowguid
+            description: "Número ROWGUIDCOL que identifica unicamente o registro. Usado para suportar uma amostra de replicação de merge."
+            data_type: uniqueidentifier
+            tests:
+              - not_null
+          - name: ModifiedDate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
+            data_type: datetime
+            tests:
+              - not_null
 
   - name: dbt_brunapraca
     description: 'Fonte de dados do sistema ERP da AdventureWorks, source criada'
@@ -425,4 +496,4 @@ sources:
           description: "Número ROWGUIDCOL que identifica exclusivamente o registro. Usado para suportar um exemplo de replicação de mesclagem."
         - name: ModifiedDate
           description: "Data e hora em que o registro foi atualizado pela última vez."
-      
+    

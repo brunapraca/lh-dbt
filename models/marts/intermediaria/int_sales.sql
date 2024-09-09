@@ -27,7 +27,10 @@ with
 
     , joined as (
         select 
-            vendas.pk_pedido
+            {{ dbt_utils.generate_surrogate_key(
+                ['vendas.pk_pedido', 'vendas_detalhes.fk_produto']
+            ) }} as produto_pedido_sk 
+            , vendas.pk_pedido
             , vendas.fk_cliente
             , vendas.fk_vendedor
             , vendas.fk_territorio
@@ -52,7 +55,8 @@ with
 
     , metricas as (
         select 
-            pk_pedido
+            produto_pedido_sk 
+            , pk_pedido
             , pk_detalhe_pedido
             , fk_promocao
             , fk_produto
@@ -66,8 +70,10 @@ with
             , nome_status_pedido
             , flag_pedido_online
             , quantidade_comprada
+            , desconto_unitario
             , preco_unitario
             , (preco_unitario * (1 - desconto_unitario)) as valor_com_desconto
+            , quantidade_comprada * (preco_unitario * (1 - desconto_unitario)) as valor_total_compra
             , DATE_DIFF(data_envio, data_pedido, day) as tempo_frete
             , MD5(
                 concat(
@@ -79,7 +85,7 @@ with
                     , cast(fk_territorio as string)
                     , cast(fk_cartao_credito as string)
                 )
-            ) AS sk_vendas
+            ) as sk_vendas
         from joined
     )
 select *

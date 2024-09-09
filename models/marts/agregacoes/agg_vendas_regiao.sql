@@ -32,6 +32,7 @@ with
     , joined as (
         select 
             vendas.pk_pedido
+            , vendas.fk_endereco
             , stg_territorio.pk_territorio
             , vendas_detalhes.fk_produto
             , vendas.status_pedido
@@ -60,7 +61,7 @@ with
 
     , metricas as (
         select
-            pk_territorio
+            fk_endereco
             , nome_territorio as nome_regiao
             , nome_pais as pais
             , cidade
@@ -69,7 +70,7 @@ with
             , SUM(preco_unitario) as valor_negociado_cidade
         from joined
         group by 
-            pk_territorio
+            fk_endereco
             , cidade
             , nome_territorio
             , nome_pais

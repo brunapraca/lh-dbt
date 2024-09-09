@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: agg_vendedor
+    description: "Resumo agregado de vendas por vendedor, incluindo quantidade comprada, dados do pedido e informações da loja associada."
+    columns:
+      - name: pk_pedido
+        description: "Chave primária do pedido, identificando de forma única cada pedido na tabela."
+        tests:
+          - not_null
+          - unique
+      - name: pk_vendedor
+        description: "Chave primária do vendedor, identificando de forma única cada vendedor na tabela."
+      - name: fk_territorio
+        description: "Chave estrangeira referenciando o território associado ao vendedor."
+      - name: cota_vendas
+        description: "Cota de vendas do vendedor, representando o objetivo de vendas anual."
+      - name: vendas_ano_atual
+        description: "Total de vendas do vendedor no ano atual."
+      - name: vendas_ano_anterior
+        description: "Total de vendas do vendedor no ano anterior."
+      - name: data_pedido
+        description: "Data em que o pedido foi realizado."
+      - name: nome_loja
+        description: "Nome da loja associada ao vendedor."
+      - name: total_quantidade_comprada
+        description: "Quantidade total de produtos comprados associada ao vendedor e ao pedido."
+        tests:
+          - not_null

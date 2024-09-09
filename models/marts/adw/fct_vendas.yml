@@ -4,46 +4,27 @@ models:
   - name: fct_vendas
     description: "Dimensão de pedidos de vendas, incluindo detalhes dos pedidos, status, promoções aplicadas e métricas relacionadas às vendas."
     columns:
+      - name: produto_pedido_sk
+        description: 'Chave surrogete que une a chave primária do pedido e a chave primária do produto'
+        tests:
+          - not_null
+          - unique
       - name: pk_pedido
         description: "Chave primária do pedido, identificando de forma única cada pedido na tabela."
-        tests:
-          - not_null
-          - unique
       - name: pk_detalhe_pedido
         description: "Chave primária do detalhe do pedido, identificando de forma única cada item do pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_promocao
         description: "Chave estrangeira referenciando a promoção aplicada ao pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_produto
         description: "Chave estrangeira referenciando o produto incluído no pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_cliente
         description: "Chave estrangeira referenciando o cliente que fez o pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_vendedor
         description: "Chave estrangeira referenciando o vendedor que gerenciou o pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_territorio
         description: "Chave estrangeira referenciando o território associado ao pedido."
-        tests:
-          - not_null
-          - unique
       - name: fk_cartao_credito
         description: "Chave estrangeira referenciando o cartão de crédito usado no pedido, se aplicável."
-        tests:
-          - not_null
-          - unique
       - name: data_pedido
         description: "Data em que o pedido foi realizado."
       - name: data_envio
@@ -64,8 +45,3 @@ models:
         description: "Valor do produto com o desconto aplicado."
       - name: tempo_frete
         description: "Número de dias entre a data do pedido e a data de envio."
-      - name: sk_vendas
-        description: "Chave substituta (surrogate key) gerada a partir de um hash MD5 que combina diversas chaves do pedido."
-        tests:
-          - not_null
-          - unique

@@ -4,8 +4,8 @@ models:
   - name: dim_promocoes
     description: 'Dimensão de promoções para análises de campanhas promocionais, incluindo detalhes sobre a promoção, produtos associados e duração da oferta.'
     columns:
-      - name: pk_pedido
-        description: 'Chave primária do pedido'
+      - name: produto_pedido_sk
+        description: 'Chave surrogete que une a chave primária do pedido e a chave primária do produto'
         tests:
           - not_null
           - unique

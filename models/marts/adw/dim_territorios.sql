@@ -2,7 +2,13 @@ with
     stg_vendas as (
         select 
             distinct(fk_endereco)
+            , fk_territorio
         from {{ ref('stg_sap_adw__salesorderheaders') }}
+    )
+
+    , stg_territorio as (
+        select * 
+        from {{ ref('stg_sap_adw__salesterritory') }}
     )
 
     , stg_cidade as (
@@ -36,10 +42,12 @@ with
         from stg_vendas
         left join stg_cidade
             on stg_vendas.fk_endereco = stg_cidade.pk_cidade
-        left join 	stg_estado 
+        left join stg_estado 
             on stg_cidade.fk_provincia = stg_estado.pk_provincia
+        left join stg_territorio
+            on stg_territorio.pk_territorio = stg_vendas.fk_territorio
         left join stg_pais
-            on stg_estado.code_provincia = stg_pais.pk_pais
+            on stg_territorio.codigo_pais = stg_pais.pk_pais
     )
 select *
 from transformacao

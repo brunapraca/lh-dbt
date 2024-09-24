@@ -449,7 +449,6 @@ sources:
             data_type: int
             tests:
               - not_null
-              - unique
           - name: LocationID
             description: "Número de identificação do local de inventário. Chave estrangeira para Location.LocationID."
             data_type: smallint

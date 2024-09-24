@@ -18,18 +18,23 @@ Este projeto foi desenvolvido para a Adventure Works com o objetivo de implement
 O projeto está organizado em fases, desde a coleta e integração dos dados até a criação de dashboards e geração de insights. Abaixo está a estrutura geral:
 
  1. Coleta e Integração de Dados
+
 Para centralizar e processar os dados de forma eficiente, o pipeline utilizou o GitHub como principal fonte de dados.
 
 2. Armazenamento em Data Warehouse (DW)
+
 O armazenamento e processamento dos dados ocorreram no BigQuery (BQ), uma das soluções de data warehouse em nuvem mais utilizadas no MDS. A escolha por um DW em nuvem facilita a escalabilidade e oferece alta performance nas consultas, o que possibilita o processamento otimizado de grandes volumes de dados.
 
 3. Transformação de Dados
+
 Após o armazenamento no BigQuery, os dados brutos foram transformados usando o dbt, ferramenta que organiza, limpa e modela os dados de forma eficiente. A transformação é crucial, pois prepara os dados para análise, organizando-os em tabelas de fato e dimensões, realizando agregações e criando métricas intermediárias. O dbt também foi utilizado para documentar as tabelas de origem, criar staging tables e calcular as métricas necessárias.
 
 4. Armazenamento dos Dados Transformados no BigQuery
+
 Depois de transformados, os dados foram novamente armazenados no BigQuery, agora já organizados e prontos para consumo. Esse armazenamento otimizado garante que as consultas possam ser feitas rapidamente, permitindo que ferramentas de visualização acessem os dados de forma eficiente.
 
 5. Visualização de Dados
+
 A visualização dos dados foi realizada no Power BI (PBI), uma ferramenta robusta de business intelligence que permite a criação de dashboards interativos e relatórios intuitivos. O PBI auxilia na tomada de decisões baseadas em dados, permitindo que os insights extraídos do pipeline de dados sejam acessíveis e úteis para a empresa.
 
 Vantagens do Modern Data Stack (MDS)

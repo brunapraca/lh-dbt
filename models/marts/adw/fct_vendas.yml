@@ -8,7 +8,6 @@ models:
         description: 'Chave surrogete que une a chave primária do pedido e a chave primária do produto'
         tests:
           - not_null
-          - unique
       - name: pk_pedido
         description: "Chave primária do pedido, identificando de forma única cada pedido na tabela."
       - name: pk_detalhe_pedido

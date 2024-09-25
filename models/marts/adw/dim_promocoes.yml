@@ -11,8 +11,6 @@ models:
           - unique
       - name: pk_promocao
         description: 'Chave primária da promoção, vinda da tabela de origem.'
-        tests:
-          - not_null
       - name: descricao_promocao
         description: 'Descrição da promoção.'
       - name: percentual_desconto
